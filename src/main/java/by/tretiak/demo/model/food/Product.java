@@ -1,11 +1,17 @@
 package by.tretiak.demo.model.food;
 
-//@Entity
-//@Table(name = "ingredients")
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "products")
 public class Product {
 
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String name;
@@ -17,6 +23,35 @@ public class Product {
 
 	public Product() {
 
+	}
+
+	public Product(Long id, String name, double caloriesContent, double proteinsContent, double fatContent,
+			double carbohydratesContent) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.caloriesContent = caloriesContent;
+		this.proteinsContent = proteinsContent;
+		this.fatContent = fatContent;
+		this.carbohydratesContent = carbohydratesContent;
+	}
+	
+	public Product(String name, double caloriesContent, double proteinsContent, double fatContent,
+			double carbohydratesContent) {
+		this.name = name;
+		this.caloriesContent = caloriesContent;
+		this.proteinsContent = proteinsContent;
+		this.fatContent = fatContent;
+		this.carbohydratesContent = carbohydratesContent;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", caloriesContent=" + caloriesContent + ", proteinsContent="
+				+ proteinsContent + ", fatContent=" + fatContent + ", carbohydratesContent=" + carbohydratesContent
+				+ "]";
 	}
 
 	public Long getId() {

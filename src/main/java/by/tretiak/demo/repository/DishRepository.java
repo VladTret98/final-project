@@ -3,11 +3,11 @@ package by.tretiak.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import by.tretiak.demo.model.user.User;
+import by.tretiak.demo.model.food.Dish;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface DishRepository extends JpaRepository<Dish, Long> {
 	
-	public User findByUsername(String userName);
+	public Dish findByDishName(String name);
 
 }

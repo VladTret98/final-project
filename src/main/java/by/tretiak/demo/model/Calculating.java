@@ -1,6 +1,9 @@
 package by.tretiak.demo.model;
 
 public interface Calculating {
-	public void calculateFeatures();
+	
+//	public static Features calculateEatenFeatures(List<Dish> dishes);
+	
+	
 
 }

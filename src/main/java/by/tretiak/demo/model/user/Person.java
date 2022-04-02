@@ -1,22 +1,27 @@
 package by.tretiak.demo.model.user;
 
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
 @MappedSuperclass
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String name;
 
 	private double weight;
 
-	private Long goalId;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "goal_id", referencedColumnName = "id")
+	private Features goal;
 
 	public Person() {
 
@@ -46,12 +51,12 @@ public class Person {
 		this.weight = weight;
 	}
 
-	public Long getGoalId() {
-		return goalId;
+	public Features getGoal() {
+		return goal;
 	}
 
-	public void setGoalId(Long goalId) {
-		this.goalId = goalId;
+	public void setGoal(Features goal) {
+		this.goal = goal;
 	}
 
 }
